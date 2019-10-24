@@ -1,19 +1,22 @@
 import React from "react";
+import reactstrap from "reactstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import logo from './logo.svg';
 //import DisplayUsers from './components/DisplayUsers';
-import "./App.css";
-import {default} from "./Traveling";
-import TravelRoute from "./TravelRoute";
-import TravelPagination from "./TravelPagination";
+import "./App.scss";
+import FoodRoute from "./Foodblog/FoodRoute";
+
+
 
 
 
 const App = () => {
   
+  
   return (
-    <div className="Cars">
-      <TravelRoute />
-      <TravelPagination />
+    <div className="App">
+      <FoodRoute />
+
     </div>
   );
 };

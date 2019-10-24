@@ -1,0 +1,20 @@
+@import "./assets/variables.scss";
+
+.About {
+    position: relative;
+    img {
+        width: 100%;
+    }
+}
+
+.AboutHeader {
+    position: absolute;
+    bottom: 2rem;
+    left: 5rem;
+    font-family: $font-header;
+}
+
+.AboutText {
+    margin: 5rem;
+    text-align: center;
+}
