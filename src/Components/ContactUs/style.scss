@@ -1,0 +1,15 @@
+@import "../../assets/variables.scss";
+
+.contacts {
+    position: relative;
+    img {
+        width: $full-screen;
+    }
+    
+    &Header {
+        position: absolute;
+        bottom: 2%;
+        right: 8%;
+        font-family: $font-header;
+    }
+}

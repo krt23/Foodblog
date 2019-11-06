@@ -1,0 +1,17 @@
+@import "../../assets/variables.scss";
+
+.home {
+    position: relative;
+    text-align: center;
+
+    img {
+        width: $full-screen;
+    }
+
+    &Header {
+        position: absolute;
+        bottom: 12%;
+        left: 5%;
+        font-family: $font-header;
+    }
+}

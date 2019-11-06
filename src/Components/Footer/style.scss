@@ -1,0 +1,34 @@
+@import "../../assets/variables.scss";
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $primary-color;
+    
+    &Container {
+        margin-right: 2rem;
+        color: darken($primary-color, 45%);
+        text-align: right;
+
+        a {
+            color: $secondary-color;
+        }
+
+        a:hover {
+            color: $hover-color;
+        }
+
+        i {
+           margin-left: 1rem; 
+        }
+
+
+        &Text{
+            font-size: 14px;
+            margin: 0;
+        }
+    }
+}
+
+

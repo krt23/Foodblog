@@ -1,0 +1,17 @@
+@import "../../assets/variables.scss";
+
+.dishes {
+    position: relative;
+    text-align: center;
+    img {
+        width: $full-screen;
+    }
+    
+    &Header {
+        position: absolute;
+        bottom: 2%;
+        right: 7%;
+        font-family: $font-header;
+        color: $primary-color;
+    }
+}

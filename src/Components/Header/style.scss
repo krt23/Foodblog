@@ -1,0 +1,19 @@
+@import "../../assets/variables.scss";
+
+.nav {
+    background-color: $primary-color;
+}
+
+
+.navItem {
+    margin-left: 3rem;
+
+    a {
+        color: darken($primary-color, 70%);
+        text-decoration: none;
+    }
+    a:hover {
+        color: $hover-color;
+    }
+
+}

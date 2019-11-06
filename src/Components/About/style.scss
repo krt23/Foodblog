@@ -1,0 +1,22 @@
+@import "../../assets/variables.scss";
+
+.about {
+    position: relative;
+    text-align: center;
+    img {
+        width: $full-screen;
+    }
+    
+    &Header {
+        position: absolute;
+        bottom: 2%;
+        left: 5%;
+        font-family: $font-header;
+    }
+
+    &Text {
+        margin: 5rem;
+        text-align: center;
+    }
+
+}

@@ -1,0 +1,23 @@
+@import "../../assets/variables.scss";
+
+.login {
+    position: relative;
+    background-image: url(../../images/blog-login.jpg);
+    // background-size: 100%;
+   
+
+    &Header {
+        font-family: $font-header;
+        color: $primary-color;
+    }
+
+    &Form {
+        
+    
+        input {
+            margin: 0.5rem;
+        
+        }
+
+    }
+}
