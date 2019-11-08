@@ -13,7 +13,6 @@ export default function Dishes() {
         <img src={dishes} alt="dishes" />
         <h1 className="dishesHeader">Dishes</h1>
       </div>
-
       <ul>
         {DishesList.map(item => (
           <li>

@@ -1,8 +1,8 @@
 import React from "react";
 import { client } from "../../api/client";
 import { Link } from "react-router-dom";
-
-
+import UsersComponentItem from "./UsersComponentItem";
+import "./style.scss";
 
 class Users extends React.Component {
   state = {
@@ -10,7 +10,6 @@ class Users extends React.Component {
     data: [],
     error: false
   };
-
 
   componentDidMount() {
     client
@@ -26,12 +25,19 @@ class Users extends React.Component {
       <React.Fragment>
         {loading && <div> loading </div>}
         {!loading && (
-          <div>
-            {data.map(item => (
-              <li>
-                <Link to={`users/${item.ID}`}>{item.UserName}</Link>
-              </li>
-            ))}
+          <div className="container">
+            <h2 className="collectionTitle">
+              Users
+            </h2>
+            <div className="collection">
+              {data.map(item => (
+                <UsersComponentItem
+                  username={item.UserName}
+                  password={item.Password}
+                  id={item.ID}
+                />
+              ))}
+              </div>
           </div>
         )}
       </React.Fragment>

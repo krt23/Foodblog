@@ -3,119 +3,100 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
-  useHistory,
-  useLocation
+  Link,
+  useRouteMatch,
+  useParams,
+  withRouter
 } from "react-router-dom";
+import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "./Components/Home/Home";
+import About from "./Components/About/About";
+import OurTeam from "./Components/OurTeam/OurTeam";
+import ContactUs from "./Components/ContactUs/ContactUs";
+import Dishes from "./Components/Dishes/Dishes";
+import { Dish } from "./Components/Dishes/Dish";
+import Api from "./api/Api";
+import User from "./Components/Users/User";
+import Users from "./Components/Users/Users";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import Login from "./Components/Login/Login";
+import Auth from "./Components/Login/Auth";
+import Cookies from "universal-cookie";
+import { AuthProvider } from "./Components/withAuth";
+import { PrivateRoute } from "./Components/PrivateRoute";
+import AuthButton from "./Components/AuthButton";
 
 
-export default function AuthExample() {
-  return (
-    <Router>
-      <div>
-        <AuthButton />
+// const cookies = new Cookies();
 
-        <ul>
-          <li>
-            <Link to="/public">Public Page</Link>
-          </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-          </li>
-        </ul>
+class App extends React.Component {
+  //   state = {
+  //     isAuthorized: false
+  //   };
 
-        <Switch>
-          <Route path="/public">
-            <PublicPage />
-          </Route>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
-          <PrivateRoute path="/protected">
-            <ProtectedPage />
-          </PrivateRoute>
-        </Switch>
-      </div>
-    </Router>
-  );
-}
+  //   loginHandler = () => {
+  //     if (this.state.isAuthorized) {
+  //       cookies.remove("login");
+  //     }
+  //     this.setState(state => ({
+  //       isAuthorized: !state.isAuthorized
+  //     }));
+  //   };
 
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    fakeAuth.isAuthenticated = true;
-    setTimeout(cb, 100); // fake async
-  },
-  signout(cb) {
-    fakeAuth.isAuthenticated = false;
-    setTimeout(cb, 100);
+  render() {
+    return (
+        <Router>
+          <AuthProvider>
+          <div>
+            <Header
+            // isAuthorized={this.state.isAuthorized}
+            // loginToggler={this.loginHandler}
+            />
+
+            <Switch>
+              {/* <Route
+              path="/login"
+              component={props => (
+                <Login {...props} loginHandler={this.loginHandler} />
+              )}
+              exact
+            /> */}
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/login" component={AuthButton}>
+              </Route>
+              <PrivateRoute path="/about" component={About}></PrivateRoute>
+              <Route path="/dishes/:id">
+                <Dish />
+              </Route>
+              <Route path="/dishes">
+                <Dishes />
+              </Route>
+              <Route path="/contacts">
+                <ContactUs />
+              </Route>
+              <Route path="/team">
+                <OurTeam />
+              </Route>
+              <Route path="/users/:id">
+                <User />
+              </Route>
+              <Route path="/users">
+                <Users />
+              </Route>
+              <Redirect to="/home" />
+            </Switch>
+          </div>
+          </AuthProvider>
+          <Footer />
+        </Router>
+      
+    );
   }
-};
-
-function AuthButton() {
-  let history = useHistory();
-
-  return fakeAuth.isAuthenticated ? (
-    <p>
-      Welcome!{" "}
-      <button
-        onClick={() => {
-          fakeAuth.signout(() => history.push("/"));
-        }}
-      >
-        Sign out
-      </button>
-    </p>
-  ) : (
-    <p>You are not logged in.</p>
-  );
 }
 
-
-function PrivateRoute({ children, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        fakeAuth.isAuthenticated ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location }
-            }}
-          />
-        )
-      }
-    />
-  );
-}
-
-function PublicPage() {
-  return <h3>Public</h3>;
-}
-
-function ProtectedPage() {
-  return <h3>Protected</h3>;
-}
-
-function LoginPage() {
-  let history = useHistory();
-  let location = useLocation();
-
-  let { from } = location.state || { from: { pathname: "/" } };
-  let login = () => {
-    fakeAuth.authenticate(() => {
-      history.replace(from);
-    });
-  };
-
-  return (
-    <div>
-      <p>You must log in to view the page at {from.pathname}</p>
-      <button onClick={login}>Log in</button>
-    </div>
-  );
-}
+export default App;

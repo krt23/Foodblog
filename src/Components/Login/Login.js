@@ -1,6 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import Cookies from "universal-cookie";
 import Field from "./Field";
 import "./style.scss";
+import Auth from "./Auth";  
 
 class Login extends React.Component {
   constructor(props) {
@@ -23,6 +26,7 @@ class Login extends React.Component {
     });
   };
 
+  cookies = new Cookies();
 
   handleSubmit = event => {
     event.preventDefault();

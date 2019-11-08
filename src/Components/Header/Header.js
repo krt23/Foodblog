@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie";
 import "./style.scss";
+
+const cookies = new Cookies();
 
 export default function Header() {
   return (
@@ -25,6 +28,17 @@ export default function Header() {
         <span className="nav-link navItem">
           <Link to="/users">Users</Link>
         </span>
+        {/* <span className="nav-link navItem">
+          {cookies.get("login") ? (
+            <Link to="/login" onClick={loginToggler}>
+              Logout
+            </Link>
+          ) : (
+            <Link to="/login" onClick={loginToggler}>
+              Login
+            </Link>
+          )}
+        </span> */}
       </ul>
     </div>
     </nav>

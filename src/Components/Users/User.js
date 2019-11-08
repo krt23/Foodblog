@@ -1,19 +1,19 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import { client } from "../../api/client";
+import UserComponentItem from "./UserComponentItem";
 
-
-
-class Users extends React.Component {
+class User extends React.Component {
   state = {
     loading: true,
     data: [],
     error: false
   };
 
-
   componentDidMount() {
+    const { id } = this.props.match.params;
     client
-      .get("/Users/{id}")
+      .get(`/Users/${id}`)
       .then(data => this.setState({ loading: false, data: data.data }))
       .catch(error => this.setState({ loading: false, error: true }));
   }
@@ -25,8 +25,12 @@ class Users extends React.Component {
       <React.Fragment>
         {loading && <div> loading </div>}
         {!loading && (
-          <div>
-            User Name: {data.UserName}
+          <div className="container">
+            <UserComponentItem
+              username={data.UserName}
+              password={data.Password}
+              id={data.ID}
+            />
           </div>
         )}
       </React.Fragment>
@@ -34,4 +38,4 @@ class Users extends React.Component {
   }
 }
 
-export default Users;
+export default withRouter(User);
