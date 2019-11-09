@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/FoodBlog/home/static/css/main.bd399680.chunk.css",
+    "main.js": "/FoodBlog/home/static/js/main.1077b586.chunk.js",
+    "main.js.map": "/FoodBlog/home/static/js/main.1077b586.chunk.js.map",
+    "runtime-main.js": "/FoodBlog/home/static/js/runtime-main.52257d38.js",
+    "runtime-main.js.map": "/FoodBlog/home/static/js/runtime-main.52257d38.js.map",
+    "static/css/2.0624914a.chunk.css": "/FoodBlog/home/static/css/2.0624914a.chunk.css",
+    "static/js/2.076a90c6.chunk.js": "/FoodBlog/home/static/js/2.076a90c6.chunk.js",
+    "static/js/2.076a90c6.chunk.js.map": "/FoodBlog/home/static/js/2.076a90c6.chunk.js.map",
+    "index.html": "/FoodBlog/home/index.html",
+    "precache-manifest.c65dd72b205db35b387bc2b8e141c6ae.js": "/FoodBlog/home/precache-manifest.c65dd72b205db35b387bc2b8e141c6ae.js",
+    "service-worker.js": "/FoodBlog/home/service-worker.js",
+    "static/css/2.0624914a.chunk.css.map": "/FoodBlog/home/static/css/2.0624914a.chunk.css.map",
+    "static/css/main.bd399680.chunk.css.map": "/FoodBlog/home/static/css/main.bd399680.chunk.css.map",
+    "static/media/blog-about.jpg": "/FoodBlog/home/static/media/blog-about.90ccf6e2.jpg",
+    "static/media/blog-contact.jpg": "/FoodBlog/home/static/media/blog-contact.c1f81c44.jpg",
+    "static/media/blog-dishes.jpg": "/FoodBlog/home/static/media/blog-dishes.7b6804f0.jpg",
+    "static/media/blog-home.jpg": "/FoodBlog/home/static/media/blog-home.3da39ac5.jpg",
+    "static/media/style.scss": "/FoodBlog/home/static/media/blog-login.895fadcf.jpg",
+    "static/media/blog-team.jpg": "/FoodBlog/home/static/media/blog-team.bdbbd061.jpg"
+  }
+}
