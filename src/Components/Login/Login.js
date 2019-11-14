@@ -1,74 +1,105 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import Cookies from "universal-cookie";
+import React, { Component, useState } from "react";
+import { Route, Redirect, useLocation, useHistory } from "react-router-dom";
+//import { withAuth } from "./withAuth";
 import Field from "./Field";
-import "./style.scss";
-import Auth from "./Auth";  
+//import Validation from "./Validation";
+import { client } from "./client";
+//import Cookies from "universal-cookie";
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      login: "",
-      password: ""
-    };
+const Auth = {
+  authorize: false,
+  authenticate(cb) {
+    Auth.authorize = true;
+    setTimeout(cb, 100);
   }
+};
 
-  onLoginChangeHandler = event => {
-    this.setState({
-      login: event.target.value
-    });
-  };
-
-  onPasswordChangeHandler = event => {
-    this.setState({
-      password: event.target.value
-    });
-  };
-
-  cookies = new Cookies();
-
-  handleSubmit = event => {
-    event.preventDefault();
-    if (this.state.login === "admin" && this.state.password === "admin") {
-      this.cookies.set("login", "logined");
-      this.props.loginHandler();
-      this.props.history.push("/home");
-    }
-  };
-
-  render() {    
-    const { login, password } = this.state;
-    return (
-      <div className="container">
-        <div className="text-center text-muted">
-          <div className="loginHeader">
-            <h1>LOGIN</h1>
-          </div>
-          <form action="#" className="loginForm" onSubmit={this.handleSubmit}>
-            <Field
-              value={login}
-              name="username"
-              placeholder="Username"
-              type="text"
-              onChange={this.onLoginChangeHandler}
-            />
-            <Field
-              value={password}
-              name="password"
-              placeholder="Password"
-              type="password"
-              onChange={this.onPasswordChangeHandler}
-            />
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-              Login
-            </button>
-          </form>
-        </div>
-      </div>
-    );
-  }
+export function PrivateRoute({ children, props }) {
+  return (
+    <Route
+      {...props}
+      render={({ location }) =>
+        Auth.authorize ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
+  );
 }
 
-export default Login;
+function Form() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  let location = useLocation();
+  let history = useHistory();
+
+  let { from } = location.state || { from: { pathname: "/" } };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    client
+      .post("/login/", {
+        email: email,
+        password: password
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .then(() => {
+        Auth.authenticate(true);
+      })
+
+      // // .then(response => {
+      //   // Handle success.
+      //   console.log("Well done!");
+      //   console.log("User token", response.data.token);
+      // })
+      .catch(error => {
+        console.log("An error occurred:", error);
+      });
+
+    Auth.authenticate
+      ? // return <Redirect to="/about" />
+        history.replace(from)
+      : history.push("/home");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <Field
+        value={email}
+        placeholder="Login"
+        type="email"
+        onChange={e => setEmail(e.target.value)}
+      />
+      <Field
+        value={password}
+        placeholder="Password"
+        type="password"
+        onChange={e => setPassword(e.target.value)}
+      />
+      {/* <button onClick={this.handleClick}>Click</button> */}
+      <button type="submit">Login</button>
+
+      <div>
+        {/* <Validation
+            email={email}
+            password={password}
+            expectedLogin="eve.holt@reqres.in"
+            expectedPassword="cityslicka"
+          /> */}
+      </div>
+    </form>
+  );
+}
+
+export default Form;

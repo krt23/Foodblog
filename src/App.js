@@ -23,62 +23,38 @@ import Users from "./Components/Users/Users";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Login from "./Components/Login/Login";
-import Auth from "./Components/Login/Auth";
-import Cookies from "universal-cookie";
-import { AuthProvider } from "./Components/withAuth";
-import { PrivateRoute } from "./Components/PrivateRoute";
-import AuthButton from "./Components/AuthButton";
+import LoginPage from "./Components/Login/LoginPage";
+import { PrivateRoute } from "./Components/Login/Login";
 
 
-// const cookies = new Cookies();
+
+
 
 class App extends React.Component {
-  //   state = {
-  //     isAuthorized: false
-  //   };
-
-  //   loginHandler = () => {
-  //     if (this.state.isAuthorized) {
-  //       cookies.remove("login");
-  //     }
-  //     this.setState(state => ({
-  //       isAuthorized: !state.isAuthorized
-  //     }));
-  //   };
-
   render() {
     return (
         <Router>
-          <AuthProvider>
+  
           <div>
-            <Header
-            // isAuthorized={this.state.isAuthorized}
-            // loginToggler={this.loginHandler}
-            />
+            <Header />
 
             <Switch>
-              {/* <Route
-              path="/login"
-              component={props => (
-                <Login {...props} loginHandler={this.loginHandler} />
-              )}
-              exact
-            /> */}
               <Route path="/home">
                 <Home />
               </Route>
-              <Route path="/login" component={AuthButton}>
-              </Route>
-              <PrivateRoute path="/about" component={About}></PrivateRoute>
-              <Route path="/dishes/:id">
+              <Route path="/login" component={Login}></Route>
+              <PrivateRoute path="/about">
+                <About />
+              </PrivateRoute>
+              <PrivateRoute path="/dishes/:id">
                 <Dish />
-              </Route>
-              <Route path="/dishes">
+              </PrivateRoute>
+              <PrivateRoute path="/dishes">
                 <Dishes />
-              </Route>
-              <Route path="/contacts">
+              </PrivateRoute>
+              <PrivateRoute path="/contacts">
                 <ContactUs />
-              </Route>
+              </PrivateRoute>
               <Route path="/team">
                 <OurTeam />
               </Route>
@@ -88,10 +64,13 @@ class App extends React.Component {
               <Route path="/users">
                 <Users />
               </Route>
-              <Redirect to="/home" />
+                <Redirect to="/home" />
+
+
+
             </Switch>
           </div>
-          </AuthProvider>
+
           <Footer />
         </Router>
       
