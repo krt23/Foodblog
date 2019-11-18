@@ -39,7 +39,7 @@ class App extends React.Component {
             <Header />
 
             <Switch>
-              <Route path="/home">
+              <Route path="/">
                 <Home />
               </Route>
               <Route path="/login" component={Login}></Route>
