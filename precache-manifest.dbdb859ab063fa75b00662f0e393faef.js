@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "275205ca212f1e2d19732ddaf03dde0e",
+    "revision": "76948a260769050ceb588c8bada6ebee",
     "url": "/FoodBlog/index.html"
   },
   {
-    "revision": "427b304e2d41eaae45e4",
+    "revision": "f8dc0f417e07e391ef80",
     "url": "/FoodBlog/static/css/2.0624914a.chunk.css"
   },
   {
-    "revision": "9aa7b6908afa84fc208e",
-    "url": "/FoodBlog/static/css/main.590d4b24.chunk.css"
+    "revision": "17b8b7062b0869ccf0e0",
+    "url": "/FoodBlog/static/css/main.071bb4f3.chunk.css"
   },
   {
-    "revision": "427b304e2d41eaae45e4",
-    "url": "/FoodBlog/static/js/2.7927dd6f.chunk.js"
+    "revision": "f8dc0f417e07e391ef80",
+    "url": "/FoodBlog/static/js/2.ee6a5355.chunk.js"
   },
   {
-    "revision": "9aa7b6908afa84fc208e",
-    "url": "/FoodBlog/static/js/main.6bfc3f0a.chunk.js"
+    "revision": "17b8b7062b0869ccf0e0",
+    "url": "/FoodBlog/static/js/main.32b0d97a.chunk.js"
   },
   {
     "revision": "8f2c537b3a2a73a850c1",
@@ -38,6 +38,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3da39ac5bb7c9d88b074e31a6bef1a4d",
     "url": "/FoodBlog/static/media/blog-home.3da39ac5.jpg"
+  },
+  {
+    "revision": "895fadcf5a2662966157019f7350c8c8",
+    "url": "/FoodBlog/static/media/blog-login.895fadcf.jpg"
   },
   {
     "revision": "bdbbd061ce783b6de6566ba09ff73a33",
