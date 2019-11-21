@@ -1,10 +1,10 @@
 import React from "react";
-import { client } from "../../api/client";
+import { clientBiz } from "../../api/clientBiz";
 import { Link } from "react-router-dom";
-import UsersComponentItem from "./UsersComponentItem";
+import RecipesComponentItem from "./RecipesComponentItem";
 import "./style.scss";
 
-class Users extends React.Component {
+class Recipes extends React.Component {
   state = {
     loading: true,
     data: [],
@@ -12,8 +12,8 @@ class Users extends React.Component {
   };
 
   componentDidMount() {
-    client
-      .get("/Users")
+    clientBiz
+      .get("/receipts")
       .then(data => this.setState({ loading: false, data: data.data }))
       .catch(error => this.setState({ loading: false, error: true }));
   }
@@ -22,20 +22,21 @@ class Users extends React.Component {
     const { loading, data } = this.state;
     console.log(data);
 
+
     return (
       <React.Fragment>
         {loading && <div> loading </div>}
         {!loading && (
           <div className="container">
             <h2 className="collectionTitle">
-              Users
+              Recipes
             </h2>
             <div className="collection">
               {data.map(item => (
-                <UsersComponentItem
-                  username={item.UserName}
-                  password={item.Password}
-                  id={item.ID}
+                <RecipesComponentItem
+                  name={item.name}
+                  img={item.img}
+                  id={item.id}
                 />
               ))}
               </div>
@@ -46,4 +47,4 @@ class Users extends React.Component {
   }
 }
 
-export default Users;
+export default Recipes;

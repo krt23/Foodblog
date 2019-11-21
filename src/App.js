@@ -3,11 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
-  Link,
-  useRouteMatch,
-  useParams,
-  withRouter
 } from "react-router-dom";
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,54 +12,57 @@ import OurTeam from "./Components/OurTeam/OurTeam";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import Dishes from "./Components/Dishes/Dishes";
 import { Dish } from "./Components/Dishes/Dish";
-import Api from "./api/Api";
+import Recipe from "./Components/Recipes/Recipe";
+import Recipes from "./Components/Recipes/Recipes";
 import User from "./Components/Users/User";
 import Users from "./Components/Users/Users";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Login from "./Components/Login/Login";
-import LoginPage from "./Components/Login/LoginPage";
 import { PrivateRoute } from "./Components/Login/Login";
 
 
-
-
-
 class App extends React.Component {
+
   render() {
     return (
         <Router>
   
-          <div>
-            <Header />
+          <div className="app">
+          <Header />
 
             <Switch>
-              <Route path="/">
+              <Route path="/FoodBlog/">
                 <Home />
               </Route>
-              <Route path="/login" component={Login}></Route>
+              <Route path="/login" component={Login}/>
               <PrivateRoute path="/about">
                 <About />
               </PrivateRoute>
-              <PrivateRoute path="/dishes/:id">
+              <Route path="/dishes/:id">
                 <Dish />
-              </PrivateRoute>
-              <PrivateRoute path="/dishes">
+              </Route>
+              <Route path="/dishes">
                 <Dishes />
-              </PrivateRoute>
+              </Route>
+              <Route path="/recipes/:id">
+                <Recipe />
+              </Route> 
+              <Route path="/recipes">
+                <Recipes />
+              </Route>
               <PrivateRoute path="/contacts">
                 <ContactUs />
               </PrivateRoute>
-              <Route path="/team">
+              <PrivateRoute path="/team">
                 <OurTeam />
-              </Route>
+              </PrivateRoute>
               <Route path="/users/:id">
                 <User />
               </Route>
               <Route path="/users">
                 <Users />
               </Route>
-                <Redirect to="/home" />
 
 
 
@@ -73,7 +71,6 @@ class App extends React.Component {
 
           <Footer />
         </Router>
-      
     );
   }
 }

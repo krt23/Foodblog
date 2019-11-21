@@ -1,17 +1,42 @@
-import React, { Component, useState } from "react";
-import { Route, Redirect, useLocation, useHistory } from "react-router-dom";
-//import { withAuth } from "./withAuth";
+import React, { useState } from "react";
+import {
+  Route,
+  Redirect,
+  useLocation,
+  useHistory,
+  Link
+} from "react-router-dom";
 import Field from "./Field";
-//import Validation from "./Validation";
 import { client } from "./client";
-//import Cookies from "universal-cookie";
+import "./style.scss";
+import Cookies from "universal-cookie";
 
-const Auth = {
-  authorize: false,
-  authenticate(cb) {
-    Auth.authorize = true;
-    setTimeout(cb, 100);
-  }
+// const Auth = {
+//   authorize: false,
+//   authenticate(cb) {
+//     Auth.authorize = true;
+//   },
+//   signout(cb) {
+//     Auth.authorize = false;
+//   }
+// };
+
+export function SignOutButton() {
+  let history = useHistory();
+
+  return cookies.get("login") ? (
+    <Link
+      to="/login"
+      onClick={() => {
+          cookies.remove("login")
+          history.push("/");
+      }}
+    >
+      Sign out
+    </Link>
+  ) : (
+    <Link to="/login">Login</Link>
+  );
 };
 
 export function PrivateRoute({ children, props }) {
@@ -19,7 +44,7 @@ export function PrivateRoute({ children, props }) {
     <Route
       {...props}
       render={({ location }) =>
-        Auth.authorize ? (
+        cookies.get("login") ? (
           children
         ) : (
           <Redirect
@@ -34,6 +59,10 @@ export function PrivateRoute({ children, props }) {
   );
 }
 
+
+const cookies = new Cookies();
+
+
 function Form() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -41,7 +70,7 @@ function Form() {
   let location = useLocation();
   let history = useHistory();
 
-  let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: "/about/" } };
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -55,50 +84,39 @@ function Form() {
         console.log(response);
       })
       .then(() => {
-        Auth.authenticate(true);
+        console.log(cookies.set("login"));
       })
-
-      // // .then(response => {
-      //   // Handle success.
-      //   console.log("Well done!");
-      //   console.log("User token", response.data.token);
+      // .then(() => {
+      //   Auth.authenticate(true);
       // })
       .catch(error => {
         console.log("An error occurred:", error);
       });
 
-    Auth.authenticate
-      ? // return <Redirect to="/about" />
-        history.replace(from)
-      : history.push("/home");
+      cookies.get("login") && history.replace(from) //: history.push("/login");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Field
-        value={email}
-        placeholder="Login"
-        type="email"
-        onChange={e => setEmail(e.target.value)}
-      />
-      <Field
-        value={password}
-        placeholder="Password"
-        type="password"
-        onChange={e => setPassword(e.target.value)}
-      />
-      {/* <button onClick={this.handleClick}>Click</button> */}
-      <button type="submit">Login</button>
-
-      <div>
-        {/* <Validation
-            email={email}
-            password={password}
-            expectedLogin="eve.holt@reqres.in"
-            expectedPassword="cityslicka"
-          /> */}
-      </div>
-    </form>
+    <div className="login">
+      <form onSubmit={handleSubmit} className="text-center loginForm">
+        <h3>Sign In</h3>
+        <Field
+          value={email}
+          placeholder="Login"
+          type="email"
+          onChange={e => setEmail(e.target.value)}
+        />
+        <Field
+          value={password}
+          placeholder="Password"
+          type="password"
+          onChange={e => setPassword(e.target.value)}
+        />
+        <button type="submit" className="btn btn-dark">
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
 

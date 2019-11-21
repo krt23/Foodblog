@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { client } from "../../api/client";
-import UserComponentItem from "./UserComponentItem";
+import { clientBiz } from "../../api/clientBiz";
+import RecipeComponentItem from "./RecipeComponentItem";
 
-class User extends React.Component {
+class Recipe extends React.Component {
   state = {
     loading: true,
     data: [],
@@ -12,8 +12,8 @@ class User extends React.Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    client
-      .get(`/Users/${id}`)
+    clientBiz
+      .get(`/receipts/${id}`)
       .then(data => this.setState({ loading: false, data: data.data }))
       .catch(error => this.setState({ loading: false, error: true }));
   }
@@ -27,11 +27,14 @@ class User extends React.Component {
         {loading && <div> loading </div>}
         {!loading && (
           <div className="container">
-            <UserComponentItem
-              username={data.UserName}
-              password={data.Password}
-              id={data.ID}
+            
+            <RecipeComponentItem
+              id={data.id}
+              name={data.name}
+              title={data.title}
+              
             />
+    
           </div>
         )}
       </React.Fragment>
@@ -39,4 +42,4 @@ class User extends React.Component {
   }
 }
 
-export default withRouter(User);
+export default withRouter(Recipe);

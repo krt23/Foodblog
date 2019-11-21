@@ -1,4 +1,4 @@
-export const DishesList= [
+export const MOCK_DATA = [
   {
     id: 1,
     name: "Lasagne",
@@ -6,22 +6,22 @@ export const DishesList= [
       "https://amindfullmom.com/wp-content/uploads/2014/04/Easy-Lasagna-2-250x250.jpg",
     title: "Easy Homemade Lasagne",
     text: {
-      ingredients: `2 tsp olive oil
-      1 pound ground beef or Italian Sausage
-      1 teaspoon garlic powder
-      1/2 teaspoon salt omit if using Italian Sausage
-      2 teaspoons dried oregano divided
-      12 whole wheat lasagna noodles uncooked
-      1 1/2 cups cottage cheese
-      1 egg
-      1/4 cup fresh chopped parsley
-      1 tsp dried Italian seasoning
-      1/4 tsp crushed red pepper flakes optional
-      2 tsp minced garlic
-      3 cups homemade tomato sauce or your favorite store brand
-      1 cup water
-      2 cups mozzarella cheese divided
-      1/2 cup freshly grated Parmesan cheese divided`,
+      ingredients: `2 tsp olive oil;
+      1 pound ground beef or Italian Sausage;
+      1 teaspoon garlic powder;
+      1/2 teaspoon salt omit if using Italian Sausage;
+      2 teaspoons dried oregano divided;
+      12 whole wheat lasagna noodles uncooked;
+      1 1/2 cups cottage cheese;
+      1 egg;
+      1/4 cup fresh chopped parsley;
+      1 tsp dried Italian seasoning;
+      1/4 tsp crushed red pepper flakes optional;
+      2 tsp minced garlic;
+      3 cups homemade tomato sauce or your favorite store brand;
+      1 cup water;
+      2 cups mozzarella cheese divided;
+      1/2 cup freshly grated Parmesan cheese divided.`,
       preparation: {
         paragraph1: `Brush a 9x13 pan with olive oil.
         Mix together tomato sauce with 1 cup water.Preheat a large skillet over medium-high heat. 
@@ -46,15 +46,15 @@ export const DishesList= [
       "https://www.countrycleaver.com/wp-content/uploads/2017/07/Pesto-Chicken-Pasta-Skillet-with-Asparagus-and-Tomatoes-250x250.jpg",
     title: "Pasta",
     text: {
-      ingredients: `1 – 1 1/4 pound Chicken Breast, cubed
-      Salt and Pepper
-      3 Tbsp Olive Oil, divided
-      1 pound Fresh Asparagus, trimmed and cut into 1″ pieces
-      2 cloves Garlic
-      1 1/2 cups Fresh Cherry Tomatoes, sliced in half
-      1/2 cup Shredded Parmesan
-      1/2 cup Pesto
-      1 pound High Protein Whole Wheat Penne Pasta, cooked according to directions`,
+      ingredients: `1 – 1 1/4 pound Chicken Breast, cubed;
+      Salt and Pepper;
+      3 Tbsp Olive Oil, divided;
+      1 pound Fresh Asparagus, trimmed and cut into 1″ pieces;
+      2 cloves Garlic;
+      1 1/2 cups Fresh Cherry Tomatoes, sliced in half;
+      1/2 cup Shredded Parmesan;
+      1/2 cup Pesto;
+      1 pound High Protein Whole Wheat Penne Pasta, cooked according to directions.`,
       preparation: {
         paragraph1: `Prepare pasta according to package directions in heavily salted water. 
         Drain and set aside.`,
@@ -76,19 +76,19 @@ export const DishesList= [
     img: "https://www.buying.com/image/data/restaurants/1212121.jpg",
     title: "Pizza",
     text: {
-      ingredients: `1 package (1/4 ounce) active dry yeast
-      1 teaspoon sugar
-      1-1/4 cups warm water (110° to 115°)
-      1/4 cup canola oil
-      1 teaspoon salt
-      3-1/2 to 4 cups all-purpose flour
-      1/2 pound ground beef
-      1 small onion, chopped
-      1 can (15 ounces) tomato sauce
-      3 teaspoons dried oregano
-      1 teaspoon dried basil
-      1 medium green pepper, diced
-      2 cups shredded part-skim mozzarella cheese`,
+      ingredients: `1 package (1/4 ounce) active dry yeast;
+      1 teaspoon sugar;
+      1-1/4 cups warm water (110° to 115°);
+      1/4 cup canola oil;
+      1 teaspoon salt;
+      3-1/2 to 4 cups all-purpose flour;
+      1/2 pound ground beef;
+      1 small onion, chopped;
+      1 can (15 ounces) tomato sauce;
+      3 teaspoons dried oregano;
+      1 teaspoon dried basil;
+      1 medium green pepper, diced;
+      2 cups shredded part-skim mozzarella cheese.`,
       preparation: {
         paragraph1: `In large bowl, dissolve yeast and sugar in water; let stand for 5 minutes. 
         Add oil and salt. Stir in flour, a cup at a time, until a soft dough forms.`,
@@ -110,18 +110,18 @@ export const DishesList= [
     img: "http://www.day-womens.ru/wp-content/uploads/2018/11/21%D1%8B4444.jpg",
     title: "Borscht",
     text: {
-      ingredients: `1 tbsp vegetable oil
-      15g/½oz butter
-      1 large carrot, diced
-      1 celery stick, diced
-      1 onion, finely chopped
-      3 medium sized beetroots (around 450g/1lb unpeeled weight), peeled and diced
-      1 large waxy potato, diced
-      2 garlic cloves, finely chopped
-      1½ litres/2½ pints good quality beef stock
-      ½ purple cabbage, finely shredded
-      2 tomatoes, skinned, cored and chopped
-      salt and freshly ground black pepper`,
+      ingredients: `1 tbsp vegetable oil;
+      15g/½oz butter;
+      1 large carrot, diced;
+      1 celery stick, diced;
+      1 onion, finely chopped;
+      3 medium sized beetroots (around 450g/1lb unpeeled weight), peeled and diced;
+      1 large waxy potato, diced;
+      2 garlic cloves, finely chopped;
+      1½ litres/2½ pints good quality beef stock;
+      ½ purple cabbage, finely shredded;
+      2 tomatoes, skinned, cored and chopped;
+      salt and freshly ground black pepper.`,
       preparation: {
         paragraph1: `Heat the vegetable oil and butter in a large, heavy-bottomed saucepan. 
         Once melted add the carrot, celery and onion and cook gently for a few minutes. 
@@ -164,18 +164,18 @@ export const DishesList= [
       "https://www.howsweeteats.com/wp-content/uploads/2017/08/greek-yogurt-cheesecake-I-howsweeteats.com-6-250x250.jpg",
     title: "Vanilla Espresso Cheesecake",
     text: {
-      ingredients: `6 tablespoons unsalted butter melted
-      20 oreo cookies
-      2 teaspoons 1 packet powdered gelatin
-      2 8-ounce blocks of cream cheese, softened
-      1 1/2 cups plain greek yogurt 2% or full-fat
-      3/4 cup sugar
-      3 tablespoons instant espresso powder
-      1 tablespoon vanilla bean paste
-      1/2 lemon juiced
-      1/2 teaspoon salt
-      cocoa or espresso powder for dusting
-      chopped dark chocolate for stopping`,
+      ingredients: `6 tablespoons unsalted butter melted;
+      20 oreo cookies;
+      2 teaspoons 1 packet powdered gelatin;
+      2 8-ounce blocks of cream cheese, softened;
+      1 1/2 cups plain greek yogurt 2% or full-fat;
+      3/4 cup sugar;
+      3 tablespoons instant espresso powder;
+      1 tablespoon vanilla bean paste;
+      1/2 lemon juiced;
+      1/2 teaspoon salt;
+      cocoa or espresso powder for dusting;
+      chopped dark chocolate for stopping.`,
       preparation: {
         paragraph1: `Place the cookies in a food processor and pulse until crumbs remain. 
         Stream in the butter and run the processor, scraping down the sides if needed, until all the crumbs are moistened. 

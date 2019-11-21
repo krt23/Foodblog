@@ -1,10 +1,12 @@
-@import "../../assets/variables.scss";
+ @import "../../assets/variables.scss";
 
 .login {
     position: relative;
     background-image: url(../../images/blog-login.jpg);
-    // background-size: 100%;
-   
+    min-height: 520px;
+    background-position: center;
+    background-size: cover;
+
 
     &Header {
         font-family: $font-header;
@@ -12,12 +14,17 @@
     }
 
     &Form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 300px;
+        padding: 16px;
+        background-color: white;
         
-    
         input {
             margin: 0.5rem;
         
         }
-
     }
 }
