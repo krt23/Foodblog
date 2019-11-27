@@ -1,37 +1,40 @@
 import React from "react";
-import { clientBiz } from "../../api/clientBiz";
-import { Link } from "react-router-dom";
+import { client } from "../../api/client";
+import loading from "../../images/loading.gif";
 import RecipesComponentItem from "./RecipesComponentItem";
 import "./style.scss";
 
 class Recipes extends React.Component {
   state = {
-    loading: true,
+    isLoading: true,
     data: [],
     error: false
   };
 
   componentDidMount() {
-    clientBiz
+    setTimeout(() => {
+      client
       .get("/receipts")
-      .then(data => this.setState({ loading: false, data: data.data }))
-      .catch(error => this.setState({ loading: false, error: true }));
+      .then(data => this.setState({ isLoading: false, data: data.data }))
+      .catch(error => this.setState({ isLoading: false, error: true }));
+    }, 1000);
   }
 
   render() {
-    const { loading, data } = this.state;
+    const { isLoading, data } = this.state;
     console.log(data);
-
 
     return (
       <React.Fragment>
-        {loading && <div> loading </div>}
-        {!loading && (
+        {isLoading && (
+          <div className="text-center">
+            <img src={loading} alt="loading" />{" "}
+          </div>
+        )}
+        {!isLoading && (
           <div className="container">
-            <h2 className="collectionTitle">
-              Recipes
-            </h2>
-            <div className="collection">
+            <h2 className="collectionTitle">Recipes</h2>
+            <div className="row">
               {data.map(item => (
                 <RecipesComponentItem
                   name={item.name}
@@ -39,7 +42,7 @@ class Recipes extends React.Component {
                   id={item.id}
                 />
               ))}
-              </div>
+            </div>
           </div>
         )}
       </React.Fragment>

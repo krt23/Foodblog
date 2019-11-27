@@ -1,3 +1,3 @@
-import {default} from "./Users";
+import {default} from "./Recipes";
 
 

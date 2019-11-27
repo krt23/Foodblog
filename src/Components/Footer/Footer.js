@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 export default function Footer() {
@@ -11,17 +12,15 @@ export default function Footer() {
 
       <div className="footerContainer">
         <a href="https://www.instagram.com">
-          <i class="fa fa-instagram"></i>
+          <i className="fa fa-instagram"></i>
         </a>
         <a href="https://www.facebook.com">
-          <i class="fa fa-facebook"></i>
+          <i className="fa fa-facebook"></i>
         </a>
         <a href="https://github.com/">
-          <i class="fa fa-github"></i>
+          <i className="fa fa-github"></i>
         </a>
-        <p className="footerContainerText">
-          Copyright © Kristina Tkachyk 2019
-        </p>
+        <p className="footerContainerText">Copyright © Kristina Tkachyk 2019</p>
       </div>
     </footer>
   );

@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 
 const RecipesComponentItem = ({ id, name, img }) => (
-  <div class="collectionItemOuter">
-    <div class="collectionItem" key={id}>
-      <img src={img} alt="Users" />
+  <div className="col-md-4 my-5">
+    <div className="collectionItem" key={id}>
+      <img src={img} alt="Dishes" key={id} />
       <div className="collectionText">
         <h4 key={id}>{name}</h4>
+        <br />
         <Link to={`/recipes/${id}`}>
-          <span className="btn btn-secondary">More</span>
+          <span className="btn btn-dark">More..</span>
         </Link>
       </div>
     </div>

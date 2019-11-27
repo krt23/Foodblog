@@ -1,40 +1,51 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { clientBiz } from "../../api/clientBiz";
+import { withRouter } from "react-router-dom";
+import { client } from "../../api/client";
+import loading from "../../images/loading.gif";
 import RecipeComponentItem from "./RecipeComponentItem";
 
 class Recipe extends React.Component {
   state = {
-    loading: true,
+    isLoading: true,
     data: [],
     error: false
   };
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    clientBiz
+    setTimeout(() => {
+      client
       .get(`/receipts/${id}`)
-      .then(data => this.setState({ loading: false, data: data.data }))
-      .catch(error => this.setState({ loading: false, error: true }));
+      .then(data => this.setState({ isLoading: false, data: data.data }))
+      .catch(error => this.setState({ isLoading: false, error: true }));
+    }, 1000);
+    
+    
   }
 
   render() {
-    const { loading, data } = this.state;
+    const { isLoading, data } = this.state;
     console.log(data);
 
     return (
       <React.Fragment>
-        {loading && <div> loading </div>}
-        {!loading && (
+        {isLoading && (
+          <div className="text-center">
+            <img src={loading} alt="loading" />{" "}
+          </div>
+        )}
+        {!isLoading && (
           <div className="container">
-            
             <RecipeComponentItem
               id={data.id}
-              name={data.name}
+              img={data.img}
               title={data.title}
-              
+              ingredients={data.text.ingredients}
+              preparation1={data.text.preparation.paragraph1}
+              preparation2={data.text.preparation.paragraph2}
+              preparation3={data.text.preparation.paragraph3}
+              preparation4={data.text.preparation.paragraph4}
             />
-    
           </div>
         )}
       </React.Fragment>

@@ -1,8 +1,6 @@
-@import "../../assets/variables.scss";
+    @import "../../assets/variables.scss";
 
 .collection {
-    overflow: hidden;
-    
     &Title {
         padding-bottom: 5px;
         border-bottom: 1px solid #777;
@@ -15,12 +13,6 @@
         img {
             width: 100%;
         }
-
-        &Outer {
-            float: left;
-            padding: 2rem;
-            width: 33.33%;
-        }
     }
 
     &Text {
@@ -30,8 +22,13 @@
         }
 
     }
-
-
-
 }
+
+.stepImg {
+    width: 1.5rem;
+}
+
+.ingredients {
+    white-space: pre;
+  }
 

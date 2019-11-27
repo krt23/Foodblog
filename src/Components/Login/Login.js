@@ -11,15 +11,7 @@ import { client } from "./client";
 import "./style.scss";
 import Cookies from "universal-cookie";
 
-// const Auth = {
-//   authorize: false,
-//   authenticate(cb) {
-//     Auth.authorize = true;
-//   },
-//   signout(cb) {
-//     Auth.authorize = false;
-//   }
-// };
+const cookies = new Cookies();
 
 export function SignOutButton() {
   let history = useHistory();
@@ -35,7 +27,7 @@ export function SignOutButton() {
       Sign out
     </Link>
   ) : (
-    <Link to="/login">Login</Link>
+    <Link to="/login" >Sign In</Link>
   );
 };
 
@@ -60,8 +52,6 @@ export function PrivateRoute({ children, props }) {
 }
 
 
-const cookies = new Cookies();
-
 
 function Form() {
   const [email, setEmail] = useState();
@@ -84,25 +74,24 @@ function Form() {
         console.log(response);
       })
       .then(() => {
-        console.log(cookies.set("login"));
+        cookies.set("login");
       })
-      // .then(() => {
-      //   Auth.authenticate(true);
-      // })
       .catch(error => {
         console.log("An error occurred:", error);
       });
 
-      cookies.get("login") && history.replace(from) //: history.push("/login");
+      cookies.get("login") && history.replace(from) 
   };
 
   return (
     <div className="login">
       <form onSubmit={handleSubmit} className="text-center loginForm">
         <h3>Sign In</h3>
+        <p>eve.holt@reqres.in <br/>
+          cityslicka</p>
         <Field
           value={email}
-          placeholder="Login"
+          placeholder="Email"
           type="email"
           onChange={e => setEmail(e.target.value)}
         />

@@ -1,9 +1,9 @@
- @import "../../assets/variables.scss";
+@import "../../assets/variables.scss";
 
 .login {
     position: relative;
     background-image: url(../../images/blog-login.jpg);
-    min-height: 520px;
+    height: 520px;
     background-position: center;
     background-size: cover;
 
@@ -26,5 +26,11 @@
             margin: 0.5rem;
         
         }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .login {
+        height: 1080px;
     }
 }
