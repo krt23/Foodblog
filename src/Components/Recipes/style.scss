@@ -1,34 +1,39 @@
-    @import "../../assets/variables.scss";
+@import "../../assets/variables.scss";
 
 .collection {
-    &Title {
-        padding-bottom: 5px;
-        border-bottom: 1px solid #777;
-        font-size: 36px;
+  &Title {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #777;
+    font-size: 36px;
+  }
+
+  &Item {
+    border: $border-users;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &Text {
+    padding: 0 20px 20px 20px;
+
+    h4 {
+      color: $hover-color;
     }
 
-    &Item {
-        border: $border-users;
-
-        img {
-            width: 100%;
-        }
-    }
-
-    &Text {
-        padding: 0 20px 20px 20px;
-        h4 {
-            color: $hover-color;
-        }
-
-    }
+  }
 }
 
 .stepImg {
-    width: 1.5rem;
+  width: 1.5rem;
 }
 
 .ingredients {
-    white-space: pre;
-  }
+  white-space: pre;
+}
 
+.loader {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}

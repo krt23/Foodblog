@@ -1,44 +1,27 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, {useState} from "react";
 import "./style.scss";
-import { SignOutButton } from "../Login/Login";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Menu from "./Menu";
+import ToggleButton from "./ToggleButton";
+import {SideDrawer} from "./SideDrawer";
 
 export default function Header() {
-  return (
-    <nav className="navbar navbar-expand-sm bg-light navbar-light">   
-        <ul className="navbar-nav nav">
-          <li className="nav-item navItem menu">
-            <Link to="/FoodBlog/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item navItem menu">
-            <NavLink to="/about" className="nav-link" activeClassName="active">
-              About
-            </NavLink>
-          </li>
-          <li className="nav-item navItem menu">
-            <Link to="/recipes" className="nav-link">
-              Recipes
-            </Link>
-          </li>
-          <span className="nav-item navItem menu">
-            <Link to="/contacts" className="nav-link">
-              Contact Us
-            </Link>
-          </span>
-          <li className="nav-item navItem menu">
-            <Link to="/team" className="nav-link">
-              Our Team
-            </Link>
-          </li>
-          <li className="nav-item navItem">
-            <span className="nav-link">
-              <SignOutButton />
-            </span>
-          </li>
-        </ul>
-    </nav>
-  );
+    const [menuActive, setMenuState] = useState(false);
+
+    const drawerToggleClickHandler = () => {
+        setMenuState(!menuActive);
+    };
+
+    return (
+        <nav className="navbar navbar-expand-sm bg-light navbar-light">
+            {window.innerWidth < 576 &&
+            <ToggleButton click={drawerToggleClickHandler}/>}
+            {menuActive &&
+            <SideDrawer click={drawerToggleClickHandler}/>
+            }
+
+            <div className="collapse navbar-collapse menu" id="navbarSupportedContent">
+                {window.innerWidth > 576 && <Menu/> }
+            </div>
+        </nav>
+    );
 }

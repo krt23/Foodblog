@@ -1,19 +1,69 @@
 @import "../../assets/variables.scss";
 
-.nav {    
-    &Item {
-        padding-left: 2rem;
-        
-        a {
-            color: darken($primary-color, 70%);
-            text-decoration: none;
-        }
-    }
-}
 
 .menu {
-    a:hover, 
-    a:focus {
-        border-bottom: 2px solid $hover-color;
+
+  &Item {
+    padding-left: 1rem;
+  }
+
+  &Link {
+    color: darken($primary-color, 70%);
+    text-decoration: none;
+    border-bottom: 2px solid $header-color;
+  }
+
+  &Link:hover,
+  &Link:focus {
+    border-bottom: 2px solid $hover-color;
+  }
+
+}
+
+.sideDrawer {
+  height: 100%;
+  background: $primary-color;
+  //box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 4%;
+  left: 0;
+  width: 70%;
+  max-width: 200px;
+  z-index: 200;
+  //transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+
+
+.toggleButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+
+  &__line {
+    width: 30px;
+    height: 2px;
+    background: black;
+  }
+}
+
+.toggleButton:focus {
+  outline: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .menu {
+
+    &Item {
+      padding-left: 2rem;
     }
+  }
 }

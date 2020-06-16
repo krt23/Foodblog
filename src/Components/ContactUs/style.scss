@@ -2,15 +2,17 @@
 
 .contacts {
     position: relative;
+    background-color: $header-color;
     img {
         width: $full-screen;
     }
     
     &Header {
         position: absolute;
-        bottom: 2%;
-        right: 8%;
+        bottom: 15%;
+        right: 5%;
         font-family: $font-header;
+        font-size: 4rem;
     }
 
     &Text {

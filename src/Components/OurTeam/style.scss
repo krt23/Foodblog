@@ -2,15 +2,18 @@
 
 .team {
     position: relative;
+    background-color: $header-color;
     img {
         width: $full-screen;
     }
     
     &Header {
         position: absolute;
-        bottom: 2%;
+        top: 5%;
         right: 8%;
         font-family: $font-header;
+        font-size: 4rem;
+        color: white;
     }
 
     &Text {

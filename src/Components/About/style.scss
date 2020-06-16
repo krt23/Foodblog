@@ -3,15 +3,17 @@
 .about {
     position: relative;
     text-align: center;
+    background-color: $header-color;
     img {
         width: $full-screen;
     }
     
     &Header {
         position: absolute;
-        bottom: 2%;
+        bottom: 20%;
         left: 5%;
         font-family: $font-header;
+        font-size: 4rem;
     }
 
     &Text {
