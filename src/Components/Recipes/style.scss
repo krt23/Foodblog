@@ -32,8 +32,10 @@
 .ingredients {
   white-space: pre;
 }
-
 .loader {
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  padding-top: 10%;
+
+  & img {
+    width: 50%;
+  }
 }

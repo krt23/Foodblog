@@ -26,7 +26,7 @@ class App extends React.Component {
             <Router>
                 <div className="app">
                 <Header/>
-                    <div className="content">
+                    <div className="main-content">
                     <Switch>
                         <Redirect exact from="/" to="/FoodBlog/" component={Home}/>
                         <Route path="/FoodBlog/">

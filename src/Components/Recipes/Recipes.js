@@ -32,7 +32,7 @@ class Recipes extends React.Component {
                     </div>
                 )}
                 {!isLoading && (
-                    <div className="container pt-3">
+                    <div className="container mt-5 mb-5">
                         <h2 className="collectionTitle">Recipes</h2>
                         <div className="row">
                             {data.map(item => (

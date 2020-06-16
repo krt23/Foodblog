@@ -5,7 +5,7 @@ import "./style.scss";
 
 export default function About() {
   return (
-    <div>
+    <div className="mb-5">
       <div className="about">
         <img src={about} alt="citrus" />
         <h1 className="aboutHeader">About</h1>

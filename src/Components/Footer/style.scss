@@ -1,16 +1,13 @@
 @import "../../assets/variables.scss";
 
 .footer {
-  flex: 0 0 auto;
-  ////position: absolute;
-  //bottom: 0;
-  padding-top: 1rem;
-  height: 5rem;
   width: 100%;
+  padding: 20px;
+  margin-bottom: 0;
   background-color: $header-color;
 
   &Container {
-    margin-right: 2rem;
+    height: 40px;
     color: darken($primary-color, 45%);
     text-align: right;
 

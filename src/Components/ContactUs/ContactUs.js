@@ -5,7 +5,7 @@ import "./style.scss";
 
 export default function ContactUs() {
   return (
-    <div>
+    <div className="mb-5">
       <div className="contacts">
         <img src={contact} alt="contact" />
         <h1 className="contactsHeader">Contact Us</h1>

@@ -11,9 +11,30 @@
 
   &Header {
     position: absolute;
-    bottom: 30%;
-    left: 5%;
+    bottom: 5%;
+    left: 2%;
     font-family: $font-header;
-    font-size: 4rem;
+    font-size: 24px;
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  .home {
+    &Header {
+      bottom: 20%;
+      left: 3%;
+      font-size: 36px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .home {
+    &Header {
+      bottom: 30%;
+      left: 5%;
+      font-size: 4rem;
+    }
   }
 }

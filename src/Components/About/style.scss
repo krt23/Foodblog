@@ -10,14 +10,34 @@
     
     &Header {
         position: absolute;
-        bottom: 20%;
-        left: 5%;
+        bottom: 5%;
+        left: 2%;
         font-family: $font-header;
-        font-size: 4rem;
+        font-size: 24px;
     }
 
     &Text {
         padding: 2rem;
     }
 
+}
+
+@media only screen and (min-width: 768px) {
+    .about {
+        &Header {
+            bottom: 10%;
+            left: 3%;
+            font-size: 36px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .about {
+        &Header {
+            bottom: 20%;
+            left: 5%;
+            font-size: 4rem;
+        }
+    }
 }

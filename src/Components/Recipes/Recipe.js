@@ -30,12 +30,12 @@ class Recipe extends React.Component {
     return (
       <React.Fragment>
         {isLoading && (
-          <div className="text-center">
+          <div className="container text-center loader">
             <img src={loading} alt="loading" />{" "}
           </div>
         )}
         {!isLoading && (
-          <div className="container">
+          <div className="container mt-2">
             <RecipeComponentItem
               id={data.id}
               img={data.img}

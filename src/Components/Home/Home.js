@@ -4,9 +4,9 @@ import "./style.scss";
 
 
 const Home = () => (
-    <div className="home">
+    <div className="home mb-2">
         <img src={home} alt="home"/>
-        <h1 className="homeHeader">Welcome to Food Blog</h1>
+        <h1 className="homeHeader img-fluid">Welcome to Food Blog</h1>
     </div>
 );
 
